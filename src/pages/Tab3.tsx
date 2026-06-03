@@ -1,5 +1,4 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
+import { IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import './Tab3.css';
 
 const Tab3: React.FC = () => {
@@ -7,7 +6,7 @@ const Tab3: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Tab 3</IonTitle>
+          <IonTitle>Usuario</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
@@ -16,7 +15,18 @@ const Tab3: React.FC = () => {
             <IonTitle size="large">Tab 3</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <ExploreContainer name="Tab 3 page" />
+        <div className='card-container'>
+          <IonCard className='card'>
+            < img src= "https://avatars.githubusercontent.com/u/216461812?v=4&size=64" alt='Avatar'/>
+            <IonCardHeader>
+              <IonCardTitle>Joffre Verdezoto</IonCardTitle>
+              <IonCardSubtitle>joffreverdezoto</IonCardSubtitle>
+            </IonCardHeader>
+            <IonCardHeader>
+              Hola soy Joffre Verdeoto, un estudiante informático en la univesidad SEK, además me gusta mucho hacer deporte pero más el fútbol.
+            </IonCardHeader>
+          </IonCard>
+        </div>
       </IonContent>
     </IonPage>
   );

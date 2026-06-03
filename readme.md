@@ -2,9 +2,9 @@
 
 ## Información del Estudiante
 
-- **Nombre:** [Tu nombre completo aquí]
-- **Carrera:** [Tu carrera]
-- **Fecha de inicio:** [Fecha]
+- **Nombre:** Joffre Verdezoto
+- **Carrera:** Ingerniería en Informática
+- **Fecha de inicio:** 3/6/2026
 
 ---
 
