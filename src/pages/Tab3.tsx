@@ -1,7 +1,25 @@
-import { IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonContent, IonHeader, IonPage, IonTitle, IonToolbar, useIonViewWillEnter } from '@ionic/react';
 import './Tab3.css';
+import React from 'react';
+import { GithubUser } from "../interfaces/GithubUser";
+import { getUserInfo } from '../services/GithubService';
+import LoadingSpinner from '../components/LoadingSpinner';
 
 const Tab3: React.FC = () => {
+  const [userInfo, setUserInfo] = React.useState<GithubUser | null>(null);
+  const [loading, setLoading] = React.useState<boolean>(false);
+
+  const loadUserInfo = async () => {
+    setLoading(true);
+    const userData = await getUserInfo();
+    setUserInfo(userData);
+    setLoading(false);
+  }
+
+  useIonViewWillEnter(() => {
+    loadUserInfo();
+  });
+  
   return (
     <IonPage>
       <IonHeader>
@@ -17,16 +35,15 @@ const Tab3: React.FC = () => {
         </IonHeader>
         <div className='card-container'>
           <IonCard className='card'>
-            < img src= "https://avatars.githubusercontent.com/u/216461812?v=4&size=64" alt='Avatar'/>
+            < img src= {userInfo?.avatar_url} alt={userInfo?.login}/>
             <IonCardHeader>
-              <IonCardTitle>Joffre Verdezoto</IonCardTitle>
-              <IonCardSubtitle>joffreverdezoto</IonCardSubtitle>
+              <IonCardTitle color= "primary">{userInfo?.name}</IonCardTitle>
+              <IonCardSubtitle>{userInfo?.login}</IonCardSubtitle>
             </IonCardHeader>
-            <IonCardHeader>
-              Hola soy Joffre Verdeoto, un estudiante informático en la univesidad SEK, además me gusta mucho hacer deporte pero más el fútbol.
-            </IonCardHeader>
+            <IonCardContent>{userInfo?.bio}</IonCardContent>
           </IonCard>
         </div>
+        {loading && <LoadingSpinner isOpen={loading}/>}
       </IonContent>
     </IonPage>
   );
