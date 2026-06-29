@@ -1,0 +1,15 @@
+.opciones{
+    background-color:  rgb(246, 205, 205);
+}
+
+.crear{
+    color: white;
+}
+
+.borrar{
+    color: red;
+}
+
+.favorito{
+    color: rgb(255, 255, 0);
+}
